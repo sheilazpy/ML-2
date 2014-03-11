@@ -1,0 +1,4 @@
+# don't save my coursera key to a public repo
+# so put it in a private text file
+*.private
+
