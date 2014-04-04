@@ -19,13 +19,18 @@ grad = zeros(size(theta));
 %
 % Note: grad should have the same dimensions as theta
 %
+h = sigmoid(X * theta);
+% 
+J2 =  ((-1 * y)' * log(h)) - ((1 .- y)' * log(1 - h));
+J = sum(J2)/m;
 
-
-
-
-
-
-
+% grad = ((h - y)' * X) ./ m;
+for ti = 1: size(X,2);
+    %Compute the partial derivatives and set grad to the partial
+    %derivatives of the cost w.r.t. each parameter in theta...
+    % can vectorize?
+    grad(ti) = sum((h - y)' *  X(:,ti)) / m;
+end
 
 % =============================================================
 
